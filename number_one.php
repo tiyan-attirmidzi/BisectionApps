@@ -11,6 +11,10 @@
                     <label for="value_b">Nilai Batas Atas (b)</label>
                     <input name="value_b" type="int" step="0.01" class="form-control" id="value_b" placeholder="Nilai b" required>
                 </div>
+                <div class="form-group">
+                    <label for="value_t">Nilai Toleransi</label>
+                    <input name="value_t" type="int" step="0.01" class="form-control" id="value_t" placeholder="Nilai Toleransi" required>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Hitung</button>
         </div>
