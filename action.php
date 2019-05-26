@@ -1,371 +1,186 @@
-
 <?php
     if (isset($_GET['number'])) 
     {
         if ($_GET['number']=="one") 
         {
+            $equation = 'F(X) = X<sup>2</sup> - X - 6';
             function func($x) 
             {
-                $f = ($x*$x) - ($x) - 6 ;
+                $f = ($x * $x) - ($x) - 6 ;
+                return $f;
+            }
+            
+        }
+        elseif ($_GET['number']=="two") 
+        {
+            $equation = 'F(X) = X<sup>3</sup> - X - 6';
+            function func($x) 
+            {
+                $f = ($x * $x *$x) - ($x) - 6 ;
                 return $f;
             }
 
-            $value_a = $_POST['value_a'];
-            $value_b = $_POST['value_b'];
-            $value_t = $_POST['value_t'];
-            $value_c = ($value_a + $value_b) / 2;
-            $f_a = func($value_a);
-            $f_b = func($value_b);
-            $f_c = func($value_c);
-            $iterasi = 1;
-            
-            if(($f_a * $f_b) > 0 || $f_a > 0 || $f_b < 0)
-            {
-                if(($f_a * $f_b) > 0)
-                {    
-                    echo" Nilai F(a) . F(b) > 0 <br> Silakan lakukan penginputan Ulang";
-                }
-
-                if ($f_a > 0) 
-                {
-                    echo "Nilai F(a) Harus Lebih Kecil 0";
-                }
-
-                if ($f_b < 0) 
-                {
-                    echo "Nilai F(b) Harus Lebih Besar 0";
-                }
-            }            
-            else
-            { 
-                echo "
-                    <table class='table table-bordered'>
-                        <thead>
-                            <tr>
-                                <th>Iterasi</th>
-                                <th>a</th>
-                                <th>b</th>
-                                <th>c</th>
-                                <th>F(a)</th>
-                                <th>F(b)</th>
-                                <th>F(c)</th>
-                            </tr>
-                        </thead>
-                ";
-
-                while(abs($value_t) >= $value_t) 
-                {
-                    echo "
-                        <tbody>
-                            <tr>
-                                <td>$iterasi</td>
-                                <td>$value_a</td>
-                                <td>$value_b</td>
-                                <td>$value_c</td>
-                                <td>$f_a</td>
-                                <td>$f_b</td>
-                                <td>$f_c</td>
-                            </tr>
-                        </tbody>
-                    ";
-                    $iterasi++;
-                    if($f_a * $f_c >= 0) 
-                    {
-                        $value_a = $value_c;
-                    }
-                    else 
-                    {
-                        $value_b = $value_c;
-                    }
-                }   
-                echo "</table>";
-            }
         }
-        elseif ($_GET['number']=="number_two") 
+        elseif ($_GET['number']=="three") 
         {
+            $equation = 'F(X) = X<sup>2,5</sup> - X - 6';
             function func($x) 
             {
-                $f = ($x*$x) - ($x) - 6 ;
+                $value_number   = $x;
+                $value_rank     = 5;
+                $rank           = pow($value_number, $value_rank);
+                $root           = sqrt($rank);
+                $f = $root - ($value_number) - 6;
                 return $f;
             }
-
-            $value_a = $_POST['value_a'];
-            $value_b = $_POST['value_b'];
-            $value_c = ($value_a * $value_b) / 2;
-            $f_a = func($value_a);
-            $f_b = func($value_b);
-            $f_c = func($value_c);
-            $iterasi = 1;
-            
-            if(($f_a * $f_b) > 0 || $f_a > 0 || $f_b < 0)
-            {
-                if(($f_a * $f_b) > 0)
-                {    
-                    echo" Nilai F(a) . F(b) > 0 <br> Silakan lakukan penginputan Ulang";
-                }
-
-                if ($f_a > 0) 
-                {
-                    echo "Nilai F(a) Harus Lebih Kecil 0";
-                }
-
-                if ($f_b < 0) 
-                {
-                    echo "Nilai F(b) Harus Lebih Besar 0";
-                }
-            }            
-            else
-            {
-                $result = $f_a * $f_c;
-
-                if ($result == 0) 
-                {
-                    echo "Hasil Akarnya Adalah <b>$f_c</b>";
-                }
-                else
-                {
-                    //header tabel
-                    echo"
-                        <table border=1 width=100% id=table1 style=border-width: 0px>
-                            <tr>
-                                <td width=35 style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>Iterasi</font></b>
-                                </td>
-                                <td width=141 style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>a</font></b>
-                                </td>
-                                <td width=199 style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>b</font></b>
-                                </td>
-                                <td width=185 style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>c</font></b>
-                                </td>
-                                <td style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>F(a)</font></b>
-                                </td>
-                                <td style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>F(b)</font></b>
-                                </td>
-                                <td style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>F(c)</font></b>
-                                </td>
-                            </tr>
-
-                    ";
-
-                    while($result<>0)
-                    {
-                        $result = $f_b * $f_c;
-                            
-                        if($result < 0)
-                        {
-                            $value_b = $value_c;
-                        }
-                        else
-                        {
-                            $value_a = $value_c;
-                        }
-                    
-                        echo"
-                            <tr>
-                                <td width=35 style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$iterasi</font>
-                                </td>
-                                <td width=141 style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$value_a</font>
-                                </td>
-                                <td width=199 style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$value_b</font>
-                                </td>
-                                <td width=185 style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$value_c</font>
-                                </td>
-                                <td style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$f_a</font>
-                                </td>
-                                <td style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$f_a</font>
-                                </td>
-                                <td style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$f_c</font>
-                                </td>
-                            </tr>
-                        "; $iterasi++;  
-                    }
-                    echo"</table>";
-                }
-            }
-                //Kesimpulan hasil iterasi
-                $iterasi1 = $iterasi-1;
-                echo"
-                <table border=1 width=100% id=table1 cellspacing=0 height=166>
-                <tr>
-                <td colspan=2 align=center height=33 bgcolor=#00FF00><b>
-                <font face=Verdana size=6>Kesimpulan Metode Bisection</font></b></td>
-                </tr>
-                <tr>
-                <td width=34%><font face=Verdana>Nilai Taksiran Atas</font></td>
-                <td width=64%><font face=Verdana>&nbsp;$value_a</font></td>
-                </tr>
-                <tr>
-                <td width=34%><font face=Verdana>Nilai Taksiran Bawah</font></td>
-                <td width=64%><font face=Verdana>&nbsp;$value_b</font></td>
-                </tr>
-                <tr>
-                <td width=34%><font face=Verdana>Jumlah Iterasi</font></td>
-                <td width=64%><font face=Verdana>&nbsp;$iterasi1</font></td>
-                </tr>
-                <tr>
-                <td width=34%><font face=Verdana>Nilai Akar yang ditemukan</font></td>
-                <td width=64%><font face=Verdana>&nbsp;$value_c</font></td>
-                </tr>
-                </table>
-                ";
         }
-        elseif ($_GET['number']=="number_three") 
+        elseif ($_GET['number']=="four") 
         {
-            include 'number_three.php';
-        }
-        elseif ($_GET['number']=="number_four") 
-        {
+            $equation = 'F(X) = X<sup>2,5</sup> - X - 65';
             function func($x) 
             {
-                $f = ($x*$x) - ($x) - 6 ;
+                $value_number   = $x;
+                $value_rank     = 5;
+                $rank           = pow($value_number, $value_rank);
+                $root           = sqrt($rank);
+                $f = $root - ($value_number) - 65 ;
                 return $f;
             }
-
-            $value_a = $_POST['value_a'];
-            $value_b = $_POST['value_b'];
-            $value_c = ($value_a * $value_b) / 2;
-            $f_a = func($value_a);
-            $f_b = func($value_b);
-            $f_c = func($value_c);
-            $iterasi = 1;
-            
-            if(($f_a * $f_b) > 0 || $f_a > 0 || $f_b < 0)
-            {
-                if(($f_a * $f_b) > 0)
-                {    
-                    echo" Nilai F(a) . F(b) > 0 <br> Silakan lakukan penginputan Ulang";
-                }
-
-                if ($f_a > 0) 
-                {
-                    echo "Nilai F(a) Harus Lebih Kecil 0";
-                }
-
-                if ($f_b < 0) 
-                {
-                    echo "Nilai F(b) Harus Lebih Besar 0";
-                }
-            }            
-            else
-            {
-                $result = $f_a * $f_c;
-
-                if ($result == 0) 
-                {
-                    echo "Hasil Akarnya Adalah <b>$f_c</b>";
-                }
-                else
-                {
-                    //header tabel
-                    echo"
-                        <table border=1 width=100% id=table1 style=border-width: 0px>
-                            <tr>
-                                <td width=35 style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>Iterasi</font></b>
-                                </td>
-                                <td width=141 style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>a</font></b>
-                                </td>
-                                <td width=199 style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>b</font></b>
-                                </td>
-                                <td width=185 style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>c</font></b>
-                                </td>
-                                <td style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>F(a)</font></b>
-                                </td>
-                                <td style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>F(b)</font></b>
-                                </td>
-                                <td style=border-style: none; border-width: medium bgcolor=#00FF00 align=center>
-                                    <b><font size=2 face=Verdana>F(c)</font></b>
-                                </td>
-                            </tr>
-
-                    ";
-
-                    while($result<>0)
-                    {
-                        $result = $f_b * $f_c;
-                            
-                        if($result < 0)
-                        {
-                            $value_b = $value_c;
-                        }
-                        else
-                        {
-                            $value_a = $value_c;
-                        }
-                    
-                        echo"
-                            <tr>
-                                <td width=35 style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$iterasi</font>
-                                </td>
-                                <td width=141 style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$value_a</font>
-                                </td>
-                                <td width=199 style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$value_b</font>
-                                </td>
-                                <td width=185 style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$value_c</font>
-                                </td>
-                                <td style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$f_a</font>
-                                </td>
-                                <td style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$f_a</font>
-                                </td>
-                                <td style=border-style: none; border-width: medium>
-                                    <font face=Verdana size=2>$f_c</font>
-                                </td>
-                            </tr>
-                        "; $iterasi++;  
-                    }
-                    echo"</table>";
-                }
-            }
-                //Kesimpulan hasil iterasi
-                $iterasi1 = $iterasi-1;
-                echo"
-                <table border=1 width=100% id=table1 cellspacing=0 height=166>
-                <tr>
-                <td colspan=2 align=center height=33 bgcolor=#00FF00><b>
-                <font face=Verdana size=6>Kesimpulan Metode Bisection</font></b></td>
-                </tr>
-                <tr>
-                <td width=34%><font face=Verdana>Nilai Taksiran Atas</font></td>
-                <td width=64%><font face=Verdana>&nbsp;$value_a</font></td>
-                </tr>
-                <tr>
-                <td width=34%><font face=Verdana>Nilai Taksiran Bawah</font></td>
-                <td width=64%><font face=Verdana>&nbsp;$value_b</font></td>
-                </tr>
-                <tr>
-                <td width=34%><font face=Verdana>Jumlah Iterasi</font></td>
-                <td width=64%><font face=Verdana>&nbsp;$iterasi1</font></td>
-                </tr>
-                <tr>
-                <td width=34%><font face=Verdana>Nilai Akar yang ditemukan</font></td>
-                <td width=64%><font face=Verdana>&nbsp;$value_c</font></td>
-                </tr>
-                </table>
-                ";
         }
+
+        $value_a                = $_POST['value_a'];
+        $value_b                = $_POST['value_b'];
+        $value_t                = $_POST['value_t'];
+        $value_c                = ($value_a + $value_b) / 2;
+        $f_a                    = func($value_a);
+        $f_b                    = func($value_b);
+        $f_c                    = func($value_c);
+        $iterasi                = 1;
+        $y                      = $value_t;
+
     }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Penyelesaian</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    
+   <?php if(($f_a * $f_b) >= 0 || $f_a >= 0 || $f_b <= 0) { ?>
+
+        <?php if(($f_a * $f_b) >= 0) { ?>  
+            <div class='alert alert-danger mt-3'>
+                <h3 class='text-center'>Nilai F(a) . F(b) > 0, Silakan lakukan penginputan Ulang</h3>
+            </div>
+        <?php } ?>
+
+        <?php  if ($f_a >= 0) { ?>
+            <div class='alert alert-danger mt-3'>
+                <h3 class='text-center'>Nilai F(a) Harus Lebih Kecil Dari 0</h3>
+            </div>
+        <?php } ?>
+
+        <?php if ($f_b <= 0) { ?>
+            <div class='alert alert-danger mt-3'>
+                <h3 class='text-center'>Nilai F(b) Harus Lebih Besar Dari 0</h3>
+            </div>
+        <?php } ?>
+
+    <?php } else { ?>
+
+        <div class='container mt-5'>
+            <div class='row'>
+                <table class='table table-bordered'>
+                    <thead>
+                        <tr class='table-primary'>
+                            <th colspan=2 class='text-center'>Kesimpulan dari <?php echo $equation; ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nilai a</td>
+                            <td><?php echo $value_a; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Nilai b</td>
+                            <td><?php echo $value_b; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Nilai c</td>
+                            <td><?php echo $value_c; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class='container mt-2'>
+            <div class='row'>
+                <table class='table table-striped table-bordered'>
+                    <thead>
+                        <tr class='table-warning'>
+                            <th colspan=7 class='text-center'>Tabel</th>
+                        </tr>
+                        <tr>
+                            <th>Iterasi</th>
+                            <th>a</th>
+                            <th>b</th>
+                            <th>c</th>
+                            <th>F(a)</th>
+                            <th>F(b)</th>
+                            <th>F(c)</th>
+                        </tr>
+                    </thead>   
+
+                    <?php while(abs($y) >= $value_t) { ?>
+
+                        <?php    
+                            $value_c = ($value_a + $value_b) / 2;
+                            $f_a = func($value_a);
+                            $f_b = func($value_b);
+                            $f_c = func($value_c);
+                            $y      =$f_c;
+
+                        ?>
+                
+                        <tbody>
+                            <tr>
+                                <td><?php echo $iterasi; ?></td>
+                                <td><?php echo $value_a; ?></td>
+                                <td><?php echo $value_b; ?></td>
+                                <td><?php echo $value_c; ?></td>
+                                <td><?php echo $f_a; ?></td>
+                                <td><?php echo $f_b; ?></td>
+                                <td><?php echo $f_c; ?></td>
+                            </tr>
+                        </tbody>
+
+                        <?php
+                            $iterasi++;
+
+                            if($f_a * $f_c >= 0) 
+                            {
+                                $value_a = $value_c;
+                            }
+                            else
+                            {
+                                $value_b = $value_c;
+                            }
+                        ?>
+
+                    <?php } ?>   
+
+                </table>
+            </div>
+        </div>
+            
+    <?php } ?>
+
+</body>
+</html>

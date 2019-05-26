@@ -12,30 +12,34 @@
 
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
 
-    <a class="navbar-brand" href="#">Aplikasi Metode Bisection</a>
+    <a class="navbar-brand" href="index.php">Aplikasi Metode Bisection</a>
 
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php">X<sup>2</sup> - X - 6</a>
+      <li class="nav-item <?php  if (isset($_GET['page'])) { if ($_GET['page']=="number_one") { echo 'active'; } } ?>">
+        <a class="nav-link" href="index.php?page=number_one">X<sup>2</sup> - X - 6</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item  <?php  if (isset($_GET['page'])) { if ($_GET['page']=="number_two") { echo 'active'; } } ?>">
         <a class="nav-link" href="index.php?page=number_two">X<sup>3</sup> - X - 6</a>
       </li>
-    <li class="nav-item">
+    <li class="nav-item <?php  if (isset($_GET['page'])) { if ($_GET['page']=="number_three") { echo 'active'; } } ?>">
       <a class="nav-link" href="index.php?page=number_three">X<sup>2,5</sup> - x - 6</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item <?php  if (isset($_GET['page'])) { if ($_GET['page']=="number_four") { echo 'active'; } } ?>">
       <a class="nav-link" href="index.php?page=number_four">X<sup>2,5</sup> - x - 65</a>
     </li>
     </ul>
   </nav>
 
-  <div class="container-fluid mt-5">
+  <div class="container mt-5">
     <?php
 
       if (isset($_GET['page'])) 
       {
-          if ($_GET['page']=="number_two") 
+          if ($_GET['page']=="number_one") 
+          {
+              include 'number_one.php';
+          }
+          elseif ($_GET['page']=="number_two") 
           {
               include 'number_two.php';
           }
@@ -50,7 +54,7 @@
       }
       else
       {
-          include 'number_one.php';  
+          include 'home.php';  
       }
 
     ?>
