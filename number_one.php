@@ -1,7 +1,11 @@
 <form action="action.php?number=one" method="post">
     <div class="card text-text-center bg-dark text-light" style="width: 30rem;">
         <div class="card-body">
-            <h5 class="card-title">F(X) = X<sup>2</sup> - X - 6</h5>
+            <h5 class="card-title">
+                <div class="alert alert-warning">
+                    F(X) = X<sup>2</sup> - X - 6
+                </div>
+            </h5>
             <div class="card-text">
                 <div class="form-group">
                     <label for="value_a">Nilai Batas Bawah (a)</label>

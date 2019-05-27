@@ -115,6 +115,10 @@
                             <td>Nilai c</td>
                             <td><?php echo $value_c; ?></td>
                         </tr>
+                        <tr>
+                            <td>Nilai Toleransi</td>
+                            <td><?php echo $value_t; ?></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
